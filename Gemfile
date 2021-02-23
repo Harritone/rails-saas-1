@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara'
   gem 'simplecov', :require => false, :group => :test
   gem "factory_bot_rails"
+  gem 'webdrivers', '~> 4'
 end
 
 group :development do
