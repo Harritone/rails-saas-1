@@ -18,6 +18,7 @@ window.$ = window.jQuery = jQuery;
 
 require('bootstrap');
 require('admin-lte');
+require('../lib/flash.js');
 
 Rails.start();
 Turbolinks.start();
