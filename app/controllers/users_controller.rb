@@ -8,11 +8,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    set_choces
+    set_choices
   end
 
   def edit
-    set_choces
+    set_choices
   end
 
   def me 
@@ -42,10 +42,12 @@ class UsersController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @user.update(user_params)
-        format.html { 
-          redirect_to my_settings_path, 
-          notice: 'You information was successfully updated.'
-        }
+        format.html do
+          redirect_to my_settings_path,
+                      notice: 'Your information was successfully updated.'
+        end
+      else
+        format.html { render :me }
       end
     end
   end
@@ -64,7 +66,7 @@ class UsersController < ApplicationController
             notice: 'User was sucessfully invited.'
           }
         else
-          set_choces
+          set_choices
           format.html { render :new }
         end
       rescue ActiveRecord::RecordNotUnique
@@ -73,16 +75,16 @@ class UsersController < ApplicationController
     end
   end
 
-   def update_me
-    @user = current_user
+  def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(user_params.except('role'))
         format.html do
-          redirect_to my_settings_path,
-                      notice: 'Your information was successfully updated.'
+          redirect_to account_users_path,
+                      notice: 'User was successfully updated.'
         end
       else
-        format.html { render :me }
+        set_choices
+        format.html { render :edit }
       end
     end
   end
@@ -109,7 +111,7 @@ class UsersController < ApplicationController
     @users = current_account.users
   end
 
-  def set_choces
+  def set_choices
     @choices = [['Admin', 'admin'], ['User', 'user']]
   end
 
