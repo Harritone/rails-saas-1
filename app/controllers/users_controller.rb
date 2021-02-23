@@ -73,16 +73,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
+   def update_me
+    @user = current_user
     respond_to do |format|
-      if @user.update(user_params.except('role'))
-        format.html {
-          redirect_to account_users_path,
-          notice: 'User was successfully updated.'
-          }
+      if @user.update(user_params)
+        format.html do
+          redirect_to my_settings_path,
+                      notice: 'Your information was successfully updated.'
+        end
       else
-        set_choces
-        format.html { render :edit }
+        format.html { render :me }
       end
     end
   end
