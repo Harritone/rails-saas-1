@@ -23,4 +23,4 @@ Things you may want to cover:
 
 - ...
 
-Start app in development with ```PORT=3000 foreman start -f Procfile.devi```
+Start app in development with ```PORT=3000 foreman start -f Procfile.dev```
