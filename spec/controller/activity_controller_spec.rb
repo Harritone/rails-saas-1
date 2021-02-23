@@ -1,17 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "Activities", type: :request do
+RSpec.describe ActivityController, type: :controller do
+  login_user
 
-  describe "GET /mine" do
+  describe "GET #mine" do
     it "returns http success" do
-      get "/activity/mine"
+      get :mine
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /feed" do
+  describe "GET #feed" do
     it "returns http success" do
-      get "/activity/feed"
+      get :feed
       expect(response).to have_http_status(:success)
     end
   end
