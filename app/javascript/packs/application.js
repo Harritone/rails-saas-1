@@ -19,6 +19,7 @@ window.$ = window.jQuery = jQuery;
 require('bootstrap');
 require('admin-lte');
 require('../lib/flash.js');
+import '@fortawesome/fontawesome-free/css/all';
 
 Rails.start();
 Turbolinks.start();
