@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_account
 
   def current_account
-    @current_account || current_user.account
+    @current_account ||= current_user.account
     @current_account
   end
 
