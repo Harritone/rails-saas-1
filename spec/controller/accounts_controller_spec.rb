@@ -21,6 +21,20 @@ RSpec.describe AccountsController, type: :controller do
       get :new
       expect(response).to render_template :new
     end
+
+    # it "fails on unauthenticated user" do
+    #   @request.env["devise.mapping"] = Devise.mappings[:user]
+    #   user = User.create!(
+    #     name: "John",
+    #     email: "specuseruser@test.com",
+    #     password: 'spec123')
+    #   user.account = Account.create!(name: 'testaccountname')
+    #   user.remove_role(:admin, account)
+    #   user.add_role :user, account
+    #   sign_in user
+    #   get :new
+    #   expect(response).to have_http_status(:redirect)
+    # end
   end
 
   describe "POST #create" do

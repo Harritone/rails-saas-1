@@ -33,9 +33,9 @@ RSpec.describe 'New User', type: :system do
         click_on('Add User')
 
         within '#new_user' do
-        fill_in 'user_name', with: 'Test'
-        fill_in 'user_email', with: 'test@test.com'
-        select('User', from: 'user_role')
+          fill_in 'user_name', with: 'Test'
+          fill_in 'user_email', with: 'test@test.com'
+          select('User', from: 'user_role')
         end
 
         click_button('Add User')
