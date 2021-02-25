@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit destroy update ]
   before_action :set_users, only: %i[ index ]
+  load_and_authorize_resource
 
   def index
-    unless current_user.has_role?('admin', current_user.account) 
-      redirect_to root_path, notice: 'You are not authorized'
-    end
+    # unless current_user.has_role?('admin', current_user.account) 
+    #   redirect_to root_path, notice: 'You are not authorized'
+    # end
   end
 
 
@@ -81,7 +82,6 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params.except('role'))
-        @user.add_role(params[:role], current_account)
         format.html do
           redirect_to account_users_path,
                       notice: 'User was successfully updated.'
