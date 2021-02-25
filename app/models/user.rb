@@ -7,4 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   belongs_to :account, optional: true
+
+  has_many :team_memberships
+  has_many :teams, through: :team_memberships
 end
