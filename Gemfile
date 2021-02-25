@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri]
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
   gem 'capybara'
   gem 'simplecov', :require => false, :group => :test
   gem "factory_bot_rails"
