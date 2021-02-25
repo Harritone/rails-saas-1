@@ -2,6 +2,8 @@
 require 'spec_helper'
 require 'devise'
 require 'support/controller_macros'
+require 'support/system_macros'
+include Warden::Test::Helpers
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -37,6 +39,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
   config.extend ControllerMacros, :type => :controller
+  config.extend SystemMacros, :type => :system
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
