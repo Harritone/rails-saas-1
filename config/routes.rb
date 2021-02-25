@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   
   get 'activity/feed'
 
+  get 'dates/:date', to: 'dates#update', as: 'update_date'
+
   root to: 'activity#mine'
 end
