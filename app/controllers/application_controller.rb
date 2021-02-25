@@ -10,10 +10,11 @@ class ApplicationController < ActionController::Base
     @current_account
   end
 
-  def current_date 
-    session[:current_date] = session[:current_date] || Date.today.iso8601
+  def current_date
+    session[:current_date] =
+      session[:current_date] || Date.today.iso8601
     @current_date ||= session[:current_date]
-  end 
+  end
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :error => exception.message
