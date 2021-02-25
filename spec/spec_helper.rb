@@ -106,6 +106,18 @@ RSpec.configure do |config|
     driven_by :selenium_chrome_headless
   end
 
+  config.before(:each, type: :view) do
+    config.mock_with :rspec do |mocks|
+      mocks.verify_partial_doubles = false
+    end
+  end
+
+  config.after(:each, type: :view) do
+    config.mock_with :rspec do |mocks|
+      mocks.verify_partial_doubles = true
+    end
+ end
+
   Capybara.javascript_driver = :selenium_chrome_headless
   Capybara.server = :puma, { Silent: true }
 
