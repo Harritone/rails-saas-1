@@ -25,6 +25,6 @@ import '@fortawesome/fontawesome-free/css/all';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap';
 
-Rails.start();
-Turbolinks.start();
-ActiveStorage.start();
+// Rails.start();
+// Turbolinks.start();
+// ActiveStorage.start();
