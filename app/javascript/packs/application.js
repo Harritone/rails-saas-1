@@ -22,6 +22,8 @@ require('../lib/flash.js');
 require('bootstrap-datepicker');
 require('../lib/dateUpdater');
 import '@fortawesome/fontawesome-free/css/all';
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap';
 
 Rails.start();
 Turbolinks.start();
