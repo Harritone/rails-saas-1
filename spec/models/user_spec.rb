@@ -7,5 +7,9 @@ RSpec.describe User, type: :model do
     end
     
   end
+
+  it { is_expected.to belong_to(:account).optional }
+  it { is_expected.to have_many(:team_memberships) }
+  it { is_expected.to have_many(:teams).through(:team_memberships) }
   
 end
