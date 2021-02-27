@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :task do
-    type { "" }
+    type { "todo" }
     title { "MyString" }
     is_completed { false }
   end
