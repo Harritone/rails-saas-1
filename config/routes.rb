@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :standups
   devise_for :users, controllers: { registrations: "registrations" }
   resources :accounts
   resources :teams, path: 't'
@@ -8,6 +7,10 @@ Rails.application.routes.draw do
   patch 'users/update_me', to: 'users#update_me', as: 'update_my_settings'
   get 'user/password', to: 'users#password', as: 'my_password'
   patch 'user/update_password', to: 'users#update_password', as: 'my_update_password'
+
+  get 's/new/(:date)', to: 'standups#new', as: 'new_standup'
+  get 's/edit/(:date)', to: 'standups#edit', as: 'edit_standup'
+  resources :standups, path: 's', except: [:new, :edit]
 
   scope 'account', as: 'account' do
     resources :users
