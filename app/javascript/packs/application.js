@@ -24,6 +24,10 @@ require('../lib/dateUpdater');
 import '@fortawesome/fontawesome-free/css/all';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap';
+require('@nathanvda/cocoon');
+
+// to initialize cocoon ...
+// cocoonInitializer($, jQuery);
 
 // Rails.start();
 // Turbolinks.start();
